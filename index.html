@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PyLearn - Interactive Python Learning</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <h1 class="logo">PyLearn</h1>
+            <div class="header-info">
+                <span id="lesson-counter">Lesson 1/9</span>
+                <button id="reference-btn" class="btn btn-secondary" title="Toggle Reference (Alt+R)">
+                    <span class="btn-icon">&#128218;</span> Reference
+                </button>
+                <button id="reset-btn" class="btn btn-secondary">Reset Progress</button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Sidebar - Lesson Navigation -->
+            <aside class="sidebar">
+                <h2>Lessons</h2>
+                <nav id="lesson-nav" class="lesson-nav">
+                    <!-- Populated by JavaScript -->
+                </nav>
+            </aside>
+
+            <!-- Content Area -->
+            <div class="content-area">
+                <!-- Lesson Panel -->
+                <section class="lesson-panel">
+                    <div id="lesson-content" class="lesson-content">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </section>
+
+                <!-- Quiz Section -->
+                <div class="quiz-section" id="quiz-section">
+                    <div class="quiz-header">
+                        <h3>Comprehension Check</h3>
+                        <span class="quiz-progress" id="quiz-progress"></span>
+                    </div>
+                    <div class="quiz-content" id="quiz-content">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                    <div class="quiz-actions" id="quiz-actions">
+                        <button id="check-quiz-btn" class="btn btn-primary">Check Answer</button>
+                        <button id="next-quiz-btn" class="btn btn-secondary" style="display:none;">Next Question</button>
+                        <button id="start-challenges-btn" class="btn btn-success" style="display:none;">Start Challenges</button>
+                    </div>
+                </div>
+
+                <!-- Challenge Selector -->
+                <div class="challenge-selector" id="challenge-selector" style="display:none;">
+                    <span class="challenge-label">Challenge:</span>
+                    <div class="challenge-tabs" id="challenge-tabs">
+                        <button class="challenge-tab active" data-difficulty="easy">Easy</button>
+                        <button class="challenge-tab" data-difficulty="medium">Medium</button>
+                        <button class="challenge-tab" data-difficulty="hard">Hard</button>
+                    </div>
+                    <div class="challenge-progress" id="challenge-progress">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Challenge Instructions -->
+                <div class="challenge-instructions" id="challenge-instructions">
+                    <!-- Populated by JavaScript -->
+                </div>
+
+                <!-- Editor Panel -->
+                <section class="editor-panel">
+                    <div class="editor-container">
+                        <div id="code-editor" class="code-editor"></div>
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-bar">
+                        <button id="run-btn" class="btn btn-primary">
+                            <span class="btn-icon">▶</span> Run
+                        </button>
+                        <button id="check-btn" class="btn btn-success">
+                            Check Answer
+                        </button>
+                        <div id="pyodide-status" class="status-indicator loading">
+                            Loading Python...
+                        </div>
+                    </div>
+
+                    <!-- Output Console -->
+                    <div class="output-panel">
+                        <h3>Output:</h3>
+                        <pre id="output-console" class="output-console"></pre>
+                        <div id="feedback" class="feedback"></div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Reference Panel -->
+            <aside id="reference-panel" class="reference-panel">
+                <div class="reference-header">
+                    <h2 id="reference-title">Quick Reference</h2>
+                    <button id="reference-close" class="reference-close" title="Close">&times;</button>
+                </div>
+                <div class="reference-content">
+                    <!-- Syntax Section -->
+                    <details class="reference-section" open>
+                        <summary>SYNTAX</summary>
+                        <div id="reference-syntax" class="reference-list"></div>
+                    </details>
+
+                    <!-- Functions Section -->
+                    <details class="reference-section" open>
+                        <summary>FUNCTIONS</summary>
+                        <div id="reference-functions" class="reference-list"></div>
+                    </details>
+
+                    <!-- Examples Section -->
+                    <details class="reference-section" open>
+                        <summary>EXAMPLES</summary>
+                        <div id="reference-examples" class="reference-list"></div>
+                    </details>
+
+                    <!-- Common Errors Section -->
+                    <details class="reference-section">
+                        <summary>COMMON ERRORS</summary>
+                        <div id="reference-errors" class="reference-list"></div>
+                    </details>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <!-- Pyodide -->
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.24.1/full/pyodide.js"></script>
+
+    <!-- Application Scripts (order matters: data first, then modules, then app) -->
+    <script src="lessons/lessons-data.js"></script>
+    <script src="js/reference-data.js"></script>
+    <script src="js/progress.js"></script>
+    <script src="js/python-runner.js"></script>
+    <script src="js/editor.js"></script>
+    <script src="js/lessons.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
