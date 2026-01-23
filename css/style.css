@@ -685,7 +685,7 @@ body {
     color: var(--text-secondary);
     white-space: pre-wrap;
     word-break: break-all;
-    min-height: 2em;
+    min-height: 1.5em;
 }
 
 .output-console.error {
@@ -694,8 +694,8 @@ body {
 
 /* Feedback */
 .feedback {
-    margin-top: 0.75rem;
-    padding: 0.75rem;
+    margin-top: 0.25rem;
+    padding: 0.5rem 0.75rem;
     border-radius: 0.375rem;
     font-size: 0.9rem;
     display: none;
